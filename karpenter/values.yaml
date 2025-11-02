@@ -9,3 +9,8 @@ replicas: 1
 image:
   repository: public.ecr.aws/karpenter/controller
   tag: v0.33.0
+
+controller:
+  # Ensure the controller receives the cluster name to avoid "missing field, cluster-name" panic
+  args:
+    - --cluster-name=voyager-cluster
