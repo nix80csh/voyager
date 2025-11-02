@@ -1,5 +1,4 @@
-controller:
-  replicas: 1
-  image:
-    repository: public.ecr.aws/karpenter/controller
-    tag: v0.32.0
+replicas: 1
+image:
+  repository: public.ecr.aws/karpenter/controller
+  tag: v0.32.0
