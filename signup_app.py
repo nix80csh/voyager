@@ -16,7 +16,7 @@ def signup():
     users = read_users()
     users.append({'name': data['name'], 'email': data.get('email', '')})
     write_users(users)
-    return jsonify({'status': 'ok'})
+    return jsonify({'status': 'ok!'})
 
 if __name__ == '__main__':
     initialize_db()
