@@ -9,9 +9,9 @@ spec:
   # nodeSelector:
   #   karpenter.sh/capacity-type: spot
   resources:
-  requests:
-    cpu: "2"
-    memory: "4Gi"
+    requests:
+      cpu: "2"
+      memory: "4Gi"
 ---
 apiVersion: v1
 kind: Pod
