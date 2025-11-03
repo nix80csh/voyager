@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: voyager
+  namespace: argocd
+spec:
+  sourceRepos:
+    - https://github.com/nix80csh/voyager-infra.git
+  destinations:
+    - namespace: karpenter
+      server: https://1EBBAD31A904C4C42E819438A2477EF3.gr7.ap-northeast-2.eks.amazonaws.com
+  # clusterResourceWhitelist:
+  #   - group: '*'
+  #     kind: '*'
+  # roles:
+  #   - name: admin
+  #     policies:
+  #       - p, proj:voyager:admin, applications, *, voyager/*, allow
+  #     groups:
+  #       - argocd-admins
