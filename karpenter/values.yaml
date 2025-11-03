@@ -1,15 +1,7 @@
 
-
 clusterName: voyager-cluster
 karpenterVersion: v0.33.0
 karpenterApiVersion: karpenter.sh/v1
-
-serviceAccount:
-  create: true
-  name: karpenter
-  annotations:
-    eks.amazonaws.com/role-arn: arn:aws:iam::009537862357:role/karpenter-controller-role
-
 settings:
   aws:
     defaultInstanceProfile: karpenter-node-instance-profile
@@ -19,8 +11,12 @@ settings:
 replicas: 1
 image:
   repository: public.ecr.aws/karpenter/controller
-  tag: v0.33.0
-
+  tag: "${.Values.karpenterVersion}"  # Reference centralized version
+serviceAccount:
+  create: true
+  name: karpenter
+  annotations:
+    eks.amazonaws.com/role-arn: "${.Values.settings.aws.roleArn}"
 controller:
   args:
     - --cluster-name=voyager-cluster
